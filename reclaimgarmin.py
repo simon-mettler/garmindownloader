@@ -60,10 +60,6 @@ def download_json(api_call, filename):
   with open(f"./{filename}", "w") as f:
     f.write(json_data)
 
-# Gets start and end date.
-start_date = "2023-08-16"
-end_date = "2023-10-01"
-
 
 # Downloads activities in gpx, tcx, and fit.
 # Downloads weather and time in HR zones as json.
@@ -130,8 +126,12 @@ def download_health_wellness(start_date, end_date):
 
     current_date += datetime.timedelta(days=1)
 
+while True:
+  start_date= input("Start Date (YYYY-MM-DD): ")
+  end_date= input("End Date (YYYY-MM-DD): ")
 
-print('--- Starting activities download ---')
-download_activities(start_date, end_date)
-print('--- Starting health and wellness data download ---')
-download_health_wellness(start_date, end_date)
+  print('--- Starting activities download ---')
+  download_activities(start_date, end_date)
+  print('--- Starting health and wellness data download ---')
+  download_health_wellness(start_date, end_date)
+  break
