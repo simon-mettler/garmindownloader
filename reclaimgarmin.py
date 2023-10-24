@@ -73,7 +73,7 @@ def download_activities(startdate, enddate):
     activity_id = activity["activityId"]
     activity_date = activity["startTimeLocal"][:10]
     filename = os.path.join('data', activity_date, 'activities', str(activity_id), str(activity_id))
-    print('Downloading activities from from ' + activity_date)
+    print('Downloading activity from ' + activity_date)
 
     os.makedirs(os.path.dirname(filename), exist_ok=True)
     download_json(activity, filename + '.json')
@@ -112,17 +112,17 @@ def download_health_wellness(start_date, end_date):
     current_date_str = current_date.strftime("%Y-%m-%d")
     print('Downloading health and wellness data from ' + current_date_str)
 
-    download_json(api.get_stats_and_body(current_date_str), os.path.join(filename, 'summary'))
-    download_json(api.get_steps_data(current_date_str), os.path.join(filename, 'steps'))
-    download_json(api.get_heart_rates(current_date_str), os.path.join(filename, 'hr')) 
-    download_json(api.get_body_battery(current_date_str), os.path.join(filename, 'bodybattery'))
-    download_json(api.get_floors(current_date_str), os.path.join(filename, 'floors'))
-    download_json(api.get_rhr_day(current_date_str), os.path.join(filename, 'rhr'))
-    download_json(api.get_sleep_data(current_date_str), os.path.join(filename, 'sleep'))
-    download_json(api.get_stress_data(current_date_str), os.path.join(filename, 'stress'))
-    download_json(api.get_respiration_data(current_date_str), os.path.join(filename, 'respiration'))
-    download_json(api.get_spo2_data(current_date_str),  os.path.join(filename, 'spo2'))
-    download_json(api.get_max_metrics(current_date_str), os.path.join(filename, 'maxmetrics'))
+    download_json(api.get_stats_and_body(current_date_str), os.path.join(filename, 'summary.json'))
+    download_json(api.get_steps_data(current_date_str), os.path.join(filename, 'steps.json'))
+    download_json(api.get_heart_rates(current_date_str), os.path.join(filename, 'hr.json')) 
+    download_json(api.get_body_battery(current_date_str), os.path.join(filename, 'bodybattery.json'))
+    download_json(api.get_floors(current_date_str), os.path.join(filename, 'floors.json'))
+    download_json(api.get_rhr_day(current_date_str), os.path.join(filename, 'rhr.json'))
+    download_json(api.get_sleep_data(current_date_str), os.path.join(filename, 'sleep.json'))
+    download_json(api.get_stress_data(current_date_str), os.path.join(filename, 'stress.json'))
+    download_json(api.get_respiration_data(current_date_str), os.path.join(filename, 'respiration.json'))
+    download_json(api.get_spo2_data(current_date_str),  os.path.join(filename, 'spo2.json'))
+    download_json(api.get_max_metrics(current_date_str), os.path.join(filename, 'maxmetrics.json'))
 
     current_date += datetime.timedelta(days=1)
 
